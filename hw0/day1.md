@@ -2,18 +2,19 @@
 
 Write your own, even if you worked in a pair. Keep it: we come back to it at mid-quarter (Week 6) and at the end (Week 11). Your prompts go in `ai_log.md`, not here.
 
-**Name:**
-**Partner (if any):**
+**Name:** Yuyao Sun
+**Partner (if any):** Matt Shi
 
 ## Before we prompted
 
 ### 1. Who is it for, and what do they want to do?
 
-It's for ___ who want to ___.
+It's for visitors to the Art Institute of Chicago who want to navigate the museum and locate exact artworks or exhibitions clearly. 
 
 **"The user can..." sentences:**
-1.
-2.
+1. The user can scroll through the floor index and select a floor to view its floor plan.
+2. The user can search for a specific artwork and see which floor it is on.
+3. The user can click an artwork to jump to its location on the floor plan.
 
 ### 2. Our sketch
 
@@ -23,7 +24,7 @@ Put the photo in this `hw0` folder, then change the filename below to match:
 
 ### 3. Our prediction
 
-We expected the app would...
+We expected the app would show different museum floors, let users search for artworks, and jump to the correct floor when an artwork is selected.
 
 ## What we got
 
