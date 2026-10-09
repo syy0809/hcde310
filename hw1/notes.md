@@ -28,3 +28,5 @@ I am proud that I make the right prediction. The reason why the last two lines p
 
 Look back at your Day 1 app: its code if you can still open it, or your screenshots of it running. Is there anything you can now recognize (a loop, an `if`, a list)? Where? If you only have screenshots, what do you think the code had to do to make the app behave that way?
 
+Looking back at my Day 1 app, AIC Floor Finder, I can now recognize some programming concepts that I learned this week, such as lists, loops, and if statements. For example, in line 52, the code uses a list to store different museum floors. In line 68, a while loop is used to load gallery information. Also, in line 127, an if statement checks whether an artwork is currently on view. These programming concepts help my app display different floors, search for artworks, and show their locations. After learning Python this week, I have a better understanding of how my Day 1 app works.
+
