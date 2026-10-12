@@ -66,6 +66,7 @@ Run `python3 exercise.py`. Python stops at the first error, so fix that snippet 
 When all five are fixed, run `python3 check.py` until it says ✓.
 
 Bonus: Snippet 5 prints something *before* it crashes. What, and why does it still crash?
+
 Snippet 5 prints "Water Lilies" before crashing because `print(longest)` only displays the longest title but does not return it. As a result, `title` becomes `None`, and calling `title.upper()` causes an AttributeError.
 
 # Part 3: Tutor practice (one snippet)
