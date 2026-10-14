@@ -4,4 +4,9 @@
 # Gogh (1889)`. Use `.get()` so a missing artist or year prints `Unknown` instead of crashing.
 
 from artworks import artworks
+for artwork in artworks:
+    Title = artwork.get("title", "Unknown")
+    Artist = artwork.get("artist", "Unknown")
+    Year = artwork.get("year", "Unknown")
 
+    print(f"{Title} - {Artist} ({Year})")

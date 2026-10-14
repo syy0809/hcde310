@@ -11,16 +11,24 @@
 
 from artworks import artworks
 
-
 def works_by(artist, artworks):
     """TODO: one line saying what it takes and what it returns."""
+    titles  = []
+    for artwork in artworks:
+        if artwork.get("artist", "unknown") == artist:
+            titles.append(artwork.get("title", "unknown"))
+    return titles
+        
     pass
-
 
 def count_by_artist(artworks):
     """TODO: one line saying what it takes and what it returns."""
+    works_count = {}
+    for artwork in artworks:
+        artist = artwork.get("artist", "Unknown")
+        works_count[artist] = works_count.get(artist, 0) + 1 
+    return works_count
     pass
-
 
 print(works_by("Claude Monet", artworks))
 print(works_by("Nobody", artworks))
