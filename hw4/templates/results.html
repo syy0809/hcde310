@@ -12,9 +12,9 @@
 
     {% for artwork in artworks %}
         <div>
-            <p>Title: {{ artwork.title }}</p>
-            <p>Artist: {{ artwork.artist_title }}</p>
-            <p>Date: {{ artwork.date_display }}</p>
+            <p>Title: {{ artwork.title or "Unknown title" }}</p>
+            <p>Artist: {{ artwork.artist_title or "Unknown artist" }}</p>
+            <p>Date: {{ artwork.date_display or "Unknown date" }}</p>
         </div>
         <hr>
     {% endfor %}

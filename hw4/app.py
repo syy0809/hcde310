@@ -15,28 +15,47 @@
 # 6. If an artwork has missing information, use fallback text.
 # 7. Display the results on the results page.
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from api import search_art
 app = Flask(__name__)
 
 @app.route("/") 
 def home():
     return render_template("home.html")
 
-#Results route using fake data first
+# Results route using the real API.
 @app.route("/results")
 def results():
-    # Fake data lets us test the page before connecting the API.
-    artworks = [
-        {
-            "title": "Water Lilies",
-            "artist_title": "Claude Monet",
-            "date_display": "1906"
-        },
-        {
-            "title": "Haystacks",
-            "artist_title": "Claude Monet",
-            "date_display": "1891"
-        }
-    ]
+    # Read the search term from the form.
+    term = request.args.get("term", "").strip()
 
-    return render_template("results.html", artworks=artworks)
+    # Empty input: ask the user to enter something.
+    if not term:
+        return render_template(
+            "home.html",
+            message="Please enter a search term."
+        )
+
+    # Search for artworks using the API.
+    artworks = search_art(term)
+
+    # API error: the request failed.
+    if artworks is None:
+        return render_template(
+            "home.html",
+            message="Could not load artworks. Please try again later."
+        )
+
+    # No results: the API returned an empty list.
+    if not artworks:
+        return render_template(
+            "home.html",
+            message="No artworks found. Please try another search."
+        )
+
+    # Display the search results.
+    return render_template(
+        "results.html",
+        artworks=artworks,
+        term=term
+    )
