@@ -106,7 +106,7 @@ URL: https://openlibrary.org/search.json?q=artificial+intelligence&limit=5&field
 
 ### 4. Gotchas
 
-One thing I noticed when testing the Open Library Search API was that multiple books can have the same title. For example, when I searched for "artificial intelligence," the first three results all had the title "Artificial intelligence," but they had different authors. This could confuse users if a book search website only displays titles.
+One thing I noticed when testing the Open Library Search API was that different books can have the same title. When I searched for "artificial intelligence," the first three results all had the title "Artificial intelligence," but they had different authors and publication years. The API returned enough information to distinguish these books, but I learned that the title alone is not a unique identifier. When using this API to build a book search interface, I should display additional information such as authors and publication years to help users identify the correct book.
 
 Another thing I learned was the difference between the total number of matches and the number of results displayed. My API response showed `numFound: 23024`, but I set `limit` to 5 and used `[:3]` to display only the first three books. At first, these different numbers could be confusing, so it is important to understand how the API returns and filters results.
 
