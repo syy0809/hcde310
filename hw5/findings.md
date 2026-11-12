@@ -34,12 +34,15 @@ Answers to my two questions, in my own words:
 **What I changed:** I updated api.py to filter the API results by artist_title. The code now keeps only artworks whose artist name contains the search term, ignoring capitalization.
 **How I checked it works:** I searched for xyznonexistentartist987654 again, and the app correctly displayed "No results found." I also searched for "Monet" and confirmed that matching artworks still appeared. I reran pytest, and both tests passed.
 **Commit before:** 5fd1a65 
-**Commit after:** (hash)
+**Commit after:** f85a7d5
 
 ## 6. Can we ship it? (100–150 words)
 Yes or no, and why:
 
-One thing my HW4 does better:
-One thing the AI's app does better:
+No, I would not ship this app tomorrow. Although the app displays artwork titles and dates, the images failed to load during testing. When I opened an image separately, the museum's website displayed an access-blocked message. I also found that the app originally returned unrelated artworks for nonexistent artists. I fixed this issue by filtering results based on artist names, but the search still has limitations. Additionally, the app exposes raw error messages and enables debug mode, which could create security risks.
+
+One thing my HW4 app does better is error handling. When an API request fails, my HW4 app displays a clear, user-friendly message instead of technical details.
+
+One thing the AI-generated app does better is including artwork images on the results page, which could make the experience more visually informative once the image-loading issue is resolved.
 
 AI use goes in `ai_use.md` (the five points on the AI Use Card).
