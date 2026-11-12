@@ -9,4 +9,14 @@ def get_artworks(artist):
     headers = {"User-Agent": "hcde310-artist-search/1.0"}
     response = requests.get(URL, params=params, headers=headers, timeout=10)
     response.raise_for_status()
-    return response.json().get("data", [])[:10]
+
+    artworks = response.json().get("data", [])
+
+    # Keep only artworks that match the artist's name
+    matching_artworks = [
+        art for art in artworks
+        if artist.lower() in (art.get("artist_title") or "").lower()
+    ]
+
+    return matching_artworks[:10]
+

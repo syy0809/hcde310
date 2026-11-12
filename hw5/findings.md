@@ -25,15 +25,16 @@ What it got wrong:
 The AI review suggested that the app was missing error handling for API requests. However, app.py already uses try/except to catch request failures, and api.py sets a 10-second timeout. The app does handle these errors, but it could provide clearer messages for different types of failures.
 
 Answers to my two questions, in my own words:
-## Q1: It checks whether the API request returned an HTTP error. If it did, an exception is raised and app.py catches it to display an error message.
-## Q2: The route accepts both GET and POST so users can search through either a URL query or the form. The form currently uses POST, but GET requests also work because app.py uses request.values.
+**Q1:** It checks whether the API request returned an HTTP error. If it did, an exception is raised and app.py catches it to display an error message.
+**Q2:** The route accepts both GET and POST so users can search through either a URL query or the form. The form currently uses POST, but GET requests also work because app.py uses request.values.
 
 
 ## 5. My fix
-What was wrong:
-What I changed:
-How I checked it works:
-Commit before: (hash)  Commit after: (hash)
+**What was wrong:** The app displayed unrelated artworks when I searched for a nonexistent artist.
+**What I changed:** I updated api.py to filter the API results by artist_title. The code now keeps only artworks whose artist name contains the search term, ignoring capitalization.
+**How I checked it works:** I searched for xyznonexistentartist987654 again, and the app correctly displayed "No results found." I also searched for "Monet" and confirmed that matching artworks still appeared. I reran pytest, and both tests passed.
+**Commit before:** 5fd1a65 
+**Commit after:** (hash)
 
 ## 6. Can we ship it? (100–150 words)
 Yes or no, and why:
